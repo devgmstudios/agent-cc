@@ -1,0 +1,37 @@
+# Claude
+.claude/
+
+# Dependencies
+node_modules/
+
+# Config files with API keys
+.agent-cc-config.json
+*config*.json
+!package.json
+
+# Environment files
+.env
+.env.*
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+dist/
+build/
+*.tgz
+
+# Test coverage
+coverage/
