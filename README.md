@@ -39,6 +39,7 @@ Or with the install script:
 | `agent-cc onboard` | Configure your BotWallet API key |
 | `agent-cc list` | List all cards |
 | `agent-cc get <token>` | Retrieve full card details for making a purchase (see below) |
+| `agent-cc create <memo> <type> <limit>` | Create a new card (see parameters below) |
 | `agent-cc transactions` | List transaction history |
 
 ### Get Card Details
@@ -55,7 +56,6 @@ This is how the bot **accesses a card** to make a purchase. It returns:
 The bot uses these details to fill out payment forms on websites.
 
 **Note:** Retrieving card details does NOT use the card. The card is only "used" when a merchant actually charges it. For `SINGLE_USE` cards, the card closes after the **first successful transaction**, not after calling `get`.
-| `agent-cc create <memo> <type> <limit>` | Create a new card (see parameters below) |
 
 ### Create Card Parameters
 
