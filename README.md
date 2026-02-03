@@ -8,12 +8,12 @@ Powered by [BotWallet.ai](https://botwallet.ai)
 
 ### Via OpenClaw
 ```
-/install https://github.com/anthropics/agent-cc
+/install https://github.com/devgmstudios/agent-cc
 ```
 
 ### Manual Installation
 ```bash
-git clone https://github.com/anthropics/agent-cc
+git clone https://github.com/devgmstudios/agent-cc
 cd agent-cc
 npm install -g .
 ```
