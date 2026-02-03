@@ -1,0 +1,24 @@
+{
+  "name": "agent-cc",
+  "version": "1.0.0",
+  "description": "Agent Credit Cards - give your agents single and multiuse credit cards so they can securely make purchases with fixed balances.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "agent-cc": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "credit-card",
+    "payments",
+    "botwallet",
+    "ai-agent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}
