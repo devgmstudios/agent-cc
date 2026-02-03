@@ -8,14 +8,19 @@ Powered by [BotWallet.ai](https://botwallet.ai)
 
 ### Via OpenClaw
 ```
-/install https://github.com/YOUR_USERNAME/botwallet-openclaw
+/install https://github.com/anthropics/agent-cc
 ```
 
 ### Manual Installation
 ```bash
-git clone https://github.com/YOUR_USERNAME/botwallet-openclaw
-cd botwallet-openclaw/skills/agent-cc
+git clone https://github.com/anthropics/agent-cc
+cd agent-cc
 npm install -g .
+```
+
+Or with the install script:
+```bash
+./install.sh
 ```
 
 ## Setup
@@ -39,8 +44,10 @@ npm install -g .
 
 ## Card Types
 
-- **SINGLE_USE**: Card closes after one transaction (recommended for most purchases)
-- **UNLOCKED**: Card stays open for multiple transactions (for subscriptions/recurring)
+| Type | Behavior | Best For |
+|------|----------|----------|
+| `SINGLE_USE` | Closes after one transaction | One-time purchases, trials, unknown merchants |
+| `UNLOCKED` | Stays open for multiple uses | Subscriptions, recurring payments, trusted merchants |
 
 ## Examples
 
@@ -54,14 +61,17 @@ agent-cc create "Shopping" UNLOCKED 100
 # List all your cards
 agent-cc list
 
-# Get full details for a card
+# Get full details for a card (number, CVV, expiry)
 agent-cc get abc123-def456-789
+
+# View transaction history
+agent-cc transactions
 ```
 
 ## How It Works
 
 1. Your agent identifies a purchase to make
-2. Agent asks for your confirmation
+2. Agent asks for your confirmation (always required)
 3. After you approve, agent creates a card with the right limit
 4. Agent fills the payment form with card details
 5. Purchase complete!
@@ -71,7 +81,27 @@ agent-cc get abc123-def456-789
 - Cards have spending limits you control
 - Single-use cards auto-close after one transaction
 - Agent always asks for confirmation before spending
-- API key stored locally, never in code
+- API key stored locally in `~/.agent-cc-config.json`, never in code
+- No dependencies - pure Node.js
+
+## File Structure
+
+```
+agent-cc/
+├── SKILL.md        # OpenClaw skill definition
+├── README.md       # This file
+├── package.json    # CLI definition (bin: agent-cc)
+├── install.sh      # Installation script
+└── src/
+    └── index.js    # CLI implementation
+```
+
+## Environment Variables
+
+You can also set your API key via environment variable:
+```bash
+export BOTWALLET_API_KEY=your_api_key_here
+```
 
 ## License
 
