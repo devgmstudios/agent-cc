@@ -38,9 +38,36 @@ Or with the install script:
 |---------|-------------|
 | `agent-cc onboard` | Configure your BotWallet API key |
 | `agent-cc list` | List all cards |
-| `agent-cc get <token>` | Get full card details (number, CVV, expiry) |
-| `agent-cc create <memo> <type> <limit>` | Create a new card |
+| `agent-cc get <token>` | Retrieve full card details for making a purchase (see below) |
 | `agent-cc transactions` | List transaction history |
+
+### Get Card Details
+
+```bash
+agent-cc get <token>
+```
+
+This is how the bot **accesses a card** to make a purchase. It returns:
+- **Card Number** (16 digits)
+- **CVV** (3-digit security code)
+- **Expiry** (month/year)
+
+The bot uses these details to fill out payment forms on websites.
+
+**Note:** Retrieving card details does NOT use the card. The card is only "used" when a merchant actually charges it. For `SINGLE_USE` cards, the card closes after the **first successful transaction**, not after calling `get`.
+| `agent-cc create <memo> <type> <limit>` | Create a new card (see parameters below) |
+
+### Create Card Parameters
+
+```bash
+agent-cc create <memo> <type> <limit>
+```
+
+| Parameter | Description | Values |
+|-----------|-------------|--------|
+| `memo` | Description for the card | Any text (e.g., "Netflix", "Amazon purchase") |
+| `type` | Card type | `SINGLE_USE` or `UNLOCKED` |
+| `limit` | Spending limit in dollars | Number (e.g., `20` for $20, `0` for unlimited) |
 
 ## Card Types
 
