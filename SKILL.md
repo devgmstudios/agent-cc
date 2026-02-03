@@ -23,10 +23,12 @@ agent-cc list
 ```
 
 ### Get Full Card Details
-Get card number, CVV, and expiry for a specific card:
+Retrieve card number, CVV, and expiry to make a purchase:
 ```bash
 agent-cc get <card_token>
 ```
+
+This returns the full card details needed to fill payment forms. **Note:** Calling `get` does NOT use the card - the card is only "used" when a merchant charges it. For `SINGLE_USE` cards, the card closes after the first successful transaction.
 
 ### Create a New Card
 ```bash
